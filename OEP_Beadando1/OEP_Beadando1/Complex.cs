@@ -9,8 +9,18 @@ namespace OEP_Beadando1
 {
      class Complex
     {
-        private double x { get; set; }
+        private double x { get;  set; }
         private double y { get; set; }
+
+        public void setx(double x)
+        {
+            this.x = x;
+        }
+
+        public void sety(double y)
+        {
+            this.y = y;
+        }
 
         public Complex(double a=0, double b=0)
         {
@@ -24,9 +34,9 @@ namespace OEP_Beadando1
         {
             if (y < 0)
             {
-                return $"{x}{y}i";
+                return $"{x}{y}*i";
             }
-            return $"{x}+{y}i";
+            return $"{x}+{y}*i";
 
 
         }
