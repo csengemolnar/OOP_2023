@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OEPBeadando2", "OEPBeadando2\OEPBeadando2.csproj", "{078B3E94-BE25-4891-90AF-1A6CA21C7E36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{078B3E94-BE25-4891-90AF-1A6CA21C7E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{078B3E94-BE25-4891-90AF-1A6CA21C7E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{078B3E94-BE25-4891-90AF-1A6CA21C7E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{078B3E94-BE25-4891-90AF-1A6CA21C7E36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A15E656-BC2E-451D-9CC1-E1221224FD0A}
+	EndGlobalSection
+EndGlobal
