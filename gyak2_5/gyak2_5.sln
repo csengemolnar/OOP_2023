@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OEPhorgaszat", "OEPhorgaszat\OEPhorgaszat.csproj", "{35208B2A-FC0B-4111-ADA5-00645B6FCDD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "invoice", "invoice\invoice.csproj", "{6480B5F3-5C43-4575-A4F8-9A3439743796}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35208B2A-FC0B-4111-ADA5-00645B6FCDD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35208B2A-FC0B-4111-ADA5-00645B6FCDD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35208B2A-FC0B-4111-ADA5-00645B6FCDD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35208B2A-FC0B-4111-ADA5-00645B6FCDD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6480B5F3-5C43-4575-A4F8-9A3439743796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6480B5F3-5C43-4575-A4F8-9A3439743796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6480B5F3-5C43-4575-A4F8-9A3439743796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6480B5F3-5C43-4575-A4F8-9A3439743796}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95CB7EAC-2A30-42BC-8EFC-D3A60D700EF7}
+	EndGlobalSection
+EndGlobal

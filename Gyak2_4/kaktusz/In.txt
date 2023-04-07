@@ -1,0 +1,4 @@
+﻿karácsonyi	spanyol	piros	10
+szúrós	mexico	fehér 1000
+kopasz	kalahar	sárga 54
+magas	mexico	piros	10

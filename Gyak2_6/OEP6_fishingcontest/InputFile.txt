@@ -1,0 +1,3 @@
+﻿Józsi 09:34 keszeg 1.4 0.7 10:05 ponty 1.8 1.1 10:25 ponty 5.0 1.2
+Karcsi 09:34 ponty 1.4 0.7 10:05 ponty 1.8 1.1 10:25 harcsa 5.0 1.2 11:05 harcsa 1.8 1.1 11:25 harcsa 5.0 1.2
+NagyHo-Hó 09:34 ponty 1.4 0.7 10:05 csuka 1.8 1.1 10:25 harcsa 5.0 1.2 11:05 ponty 1.8 1.1 11:25 harcsa 5.0 1.2 12:05 harcsa 1.8 1.1 12:25 harcsa 5.0 1.2
