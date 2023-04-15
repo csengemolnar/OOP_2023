@@ -27,7 +27,6 @@ namespace invoice
             {
                 this.name= name;
                 this.products = new();
-
             }
             public void Add(Product p)
             {
@@ -74,7 +73,10 @@ namespace invoice
                 invoice=new Invoice(tokens[0]);
                 for (int i = 1; i < tokens.Length; i+=2)
                 {
-                    invoice.Add(new Product(tokens[i], int.Parse(tokens[i + 1])));
+                    string nev = tokens[i];
+                    int ar = int.Parse(tokens[i + 1]);
+                    Product p = new Product(nev, ar);
+                    invoice.Add(p);
 
                 }
 

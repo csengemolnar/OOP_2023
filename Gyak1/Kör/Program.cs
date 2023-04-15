@@ -4,6 +4,7 @@
     {
         static Random rand = new Random(DateTime.Now.Millisecond);
         static List<point> points = new List<point>(); 
+
         static void Main(string[] args)
         {
             int n = 3;

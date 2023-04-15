@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kaktusz_b", "kaktusz_b\kaktusz_b.csproj", "{F060B13F-613D-4483-B611-3B73126216B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cactus_c", "cactus_c\cactus_c.csproj", "{6577A9D2-4D14-47D1-B962-8033AB8BA62E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F060B13F-613D-4483-B611-3B73126216B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F060B13F-613D-4483-B611-3B73126216B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F060B13F-613D-4483-B611-3B73126216B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F060B13F-613D-4483-B611-3B73126216B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6577A9D2-4D14-47D1-B962-8033AB8BA62E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6577A9D2-4D14-47D1-B962-8033AB8BA62E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6577A9D2-4D14-47D1-B962-8033AB8BA62E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6577A9D2-4D14-47D1-B962-8033AB8BA62E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {68C3010F-7797-444D-A505-14774F6070B0}
+	EndGlobalSection
+EndGlobal

@@ -1,4 +1,4 @@
-﻿using Textfile;
+﻿using TextFile;
 
 namespace kaktusz
 {
