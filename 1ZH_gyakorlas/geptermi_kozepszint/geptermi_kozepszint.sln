@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geptermi_kozepszint", "geptermi_kozepszint\geptermi_kozepszint.csproj", "{125C060B-1C0B-477F-A5AB-1C89419F10F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{125C060B-1C0B-477F-A5AB-1C89419F10F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{125C060B-1C0B-477F-A5AB-1C89419F10F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{125C060B-1C0B-477F-A5AB-1C89419F10F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{125C060B-1C0B-477F-A5AB-1C89419F10F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE6157BE-16ED-4C59-9024-24C896F40C0B}
+	EndGlobalSection
+EndGlobal
