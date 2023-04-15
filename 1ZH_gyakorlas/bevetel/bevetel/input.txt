@@ -1,0 +1,3 @@
+﻿Anna monitor 30000 egér 5000 egérpad 2500
+Tomi monitor 23000 billentyűzet 40000
+Sanyi töltő 4000 telefon 60000
