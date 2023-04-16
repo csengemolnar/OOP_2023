@@ -1,0 +1,5 @@
+﻿Sándor fizikai 300000 4 20
+Béla fizikai 350000 6 24
+Géza fizikai 300000 8 50
+János fizikai 300000 5 21
+Lajos vezető 980000 2 10
