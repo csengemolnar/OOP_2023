@@ -35,12 +35,16 @@ namespace geptermiZH_Covid
                 bool l = false;
                 int max = 0;
                 string mikor = "";
-                int sum = 0;
+                
 
                 while (ReadNap(ref reader,out Nap nap))
                 {
-                    l = l && nap.uj > 5000;
-
+                    
+                    if(nap.uj > 5000)
+                    {
+                        l = true;
+                    }
+                    int sum = 0;
                     for (int i = 0; i < nap.korhazak.Count; i++)
                     {
                         sum = sum + nap.korhazak[i].beteg;
