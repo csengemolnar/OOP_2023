@@ -1,0 +1,4 @@
+﻿2021.07.16	200	Dél-pesti 350 30	Uzsoki 400 34
+2021.10.12	600	Dél-pesti 380 30	Uzsoki 400 34	Pesti 380 30	Debreceni 900 34
+2021.10.10	60	Dél-pesti 380 30	Uzsoki 40 34
+2021.10.13	10	Dél-pesti 38 30	Uzsoki 400 34	Pesti 32 3	Debreceni 400 34
