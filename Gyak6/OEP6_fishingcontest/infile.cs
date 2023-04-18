@@ -27,7 +27,7 @@ namespace OEP6_fishingcontest
             }
             else return false;
         }
-
+         
         private bool Ok(string[] tokens)
         {
             int i;

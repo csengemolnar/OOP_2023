@@ -1,0 +1,50 @@
+﻿Australian Cattle Dog;19;16
+Sealyham Terrier;1;15;Brigida Brezinski  
+Siberian Husky;15;29
+German Shorthaired Pointer;6;13
+Schnauzer;3;20
+Rottweiler;16;13;Amberly Alfonso  
+Black And Tan Coonhound;16;14;Darell Dearmond  
+Pomeranian;13;14
+French Bulldog;11;2
+Komondor;16;0;Robt Rodreguez  
+Chinese Crested;19;25
+Brussels Griffon;19;5
+Border Collie;17;13;Darell Dearmond  
+Chesapeake Bay Retriever;10;5;Michiko Macfarlane  
+English Setter;8;21
+Greyhound;17;10;Warner Wininger  
+Akita;17;23
+Basenji;5;3;Robt Rodreguez  
+American Staffordshire Terrier;1;21;
+Newfoundland;9;26;Emery Evanoff  
+Keeshond;13;38;Emery Evanoff  
+Affenpinscher;14;39;Lorenzo Laguna  
+Bullmastiff;19;27
+Maltese;3;36
+Collie;17;15
+Puli;14;36
+Eskimo Dog;19;21
+Boston Terrier;4;29;Joaquin Jakes  
+Collie;14;19
+Shih Tzu;14;36
+Bull Terrier;19;10;Joaquin Jakes  
+Silky Terrier;1;6
+Lhasa Apso;14;38;Esperanza Engelbrecht  
+Black And Tan Coonhound;15;26;Karisa Keesler  
+Bedlington Terrier;9;36
+Rhodesian Ridgeback;14;24
+Pointer;6;2
+Great Dane;16;10
+Fox Terrier;8;0
+Saint Bernard;18;13;Tana Tijerina  
+Clumber Spaniel;4;4
+Dachshund;18;39;Lorenzo Laguna  
+Akita;7;24
+Basset Hound;6;11
+Airedale Terrier;12;24
+Jack Russell Terrier;4;20;Darell Dearmond  
+French Bulldog;17;2
+Great Dane;7;29
+Chinese Shar-Pei;10;15
+Norwegian Elkhound;15;0;Cara Cyr  

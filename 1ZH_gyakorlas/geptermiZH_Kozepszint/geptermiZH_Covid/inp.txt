@@ -1,0 +1,4 @@
+﻿2021.10.16	2500	Dél-pesti 350 30	Uzsoki 400 34
+2021.10.19	7500	Dél-pesti 750 10	Uzsoki 400 44
+2021.10.02	2500	Dél-pesti 250 30	Uzsoki 10 34
+2021.10.10	600	Dél-pesti 380 30	Uzsoki 400 34
