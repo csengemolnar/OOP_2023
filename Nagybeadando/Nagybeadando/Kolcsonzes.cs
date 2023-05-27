@@ -9,11 +9,11 @@ namespace Nagybeadando
 {
     class Kolcsonzes
     {
-        public DateTime datum;
-        public int potdij;
-        public Szemely szemely;
-        public Konyv konyv;
-        
+        public DateTime datum { get; private set; }
+        public int potdij { get; private set; }
+        public Szemely szemely { get; private set; }
+        public Konyv konyv { get; private set; }
+
 
         public Kolcsonzes(Szemely sz,Konyv k)
         {

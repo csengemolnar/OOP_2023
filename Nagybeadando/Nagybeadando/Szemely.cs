@@ -9,12 +9,20 @@ namespace Nagybeadando
 {
      class Szemely
     {
-        public string nev;
+        public int id { get; private set; }
+        public string nev { get; private set; }
 
-        public Szemely(string n)
+        public Szemely(int id, string n)
         {
+            this.id = id;
             this.nev = n;
             
+        }
+        public Szemely(string n)
+        {
+            
+            this.nev = n;
+
         }
 
 

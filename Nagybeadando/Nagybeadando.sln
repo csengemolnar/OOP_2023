@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nagybeadando", "Nagybeadando\Nagybeadando.csproj", "{1D79592D-F099-4554-942C-1FA1765395EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nagybeadando", "Nagybeadando\Nagybeadando.csproj", "{1D79592D-F099-4554-942C-1FA1765395EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonyvtarTest", "KonyvtarTest\KonyvtarTest.csproj", "{FBDCCA37-77AA-43CB-8A7D-A7D4F087FAC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1D79592D-F099-4554-942C-1FA1765395EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D79592D-F099-4554-942C-1FA1765395EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D79592D-F099-4554-942C-1FA1765395EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDCCA37-77AA-43CB-8A7D-A7D4F087FAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDCCA37-77AA-43CB-8A7D-A7D4F087FAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDCCA37-77AA-43CB-8A7D-A7D4F087FAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDCCA37-77AA-43CB-8A7D-A7D4F087FAC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
