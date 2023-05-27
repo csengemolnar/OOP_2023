@@ -1,0 +1,3 @@
+﻿2023.04.10. 11:00:00,Lovassy Piroska,Autók,Christian Tielmann,f5b713ef-7ed6-41c1-93c6-e13940134f0c,9789634039327,24,false,ifjúsági
+2023.03.24. 11:00:00,Nagy Barnabás,Zarah álma,Náray Tamás,d082409d-cacf-412d-bd6c-85c18dade4fe,9789634339250,542,false,szépirodalmi
+2023.04.25. 14:00:00,Szőke Krisztina,Kerti virágok,Kis Szabolcs,7f5ed1b9-954f-439e-9d12-5f95d331e296,9789634598558,64,false,természettudományi

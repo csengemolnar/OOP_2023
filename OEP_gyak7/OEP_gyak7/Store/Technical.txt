@@ -1,0 +1,8 @@
+﻿Számítógép 135000
+Telefon 20000
+Telefon 10000
+Telefon 40000
+Telefon 30000
+Lámpa 4000
+Számítógép 240000
+Lámpa 1500
