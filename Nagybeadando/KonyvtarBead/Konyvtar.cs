@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TextFile;
 
-namespace Nagybeadando
+namespace KonyvtarBead
 {
-     class Konyvtar
+     public class Konyvtar
     {
         public class NincsilyenTag : Exception { }
         public class NincsilyenKonyv : Exception { }
@@ -19,19 +19,19 @@ namespace Nagybeadando
         public class NincsilyenKonyvKikolcsonozve: Exception { }
         public List<Konyv> konyvek { get;  private set; }
         public List<Szemely> tagok { get; private set; }
-        private List<Kolcsonzes> kolcsonzesek { get; set; }
+        public List<Kolcsonzes> kolcsonzesek { get; private set; }
 
        
 
 
         public Konyvtar()
         {
-            BetoltKonyvek();
-            BetoltTagok();
-            BetoltKolcsonzesek();
+            BetoltKonyvek(true);
+            BetoltTagok(true);
+            BetoltKolcsonzesek(true);
         }
 
-        private void BetoltKonyvek()
+        private void BetoltKonyvek(bool flag)
         {
             try
             {
@@ -51,12 +51,19 @@ namespace Nagybeadando
                         tokens[3],
                         int.Parse(tokens[4]),
                         bool.Parse(tokens[5]),
-                        tokens[6]
+                        tokens[6],
+                        bool.Parse(tokens[7])
                     ));
 
                 }
                 reader2.CloseReader();
-                Console.WriteLine($"A könyvtár betöltötte a könyveket az adatbázisába!");
+                
+                if (flag)
+                {
+                    Console.WriteLine($"A könyvtár betöltötte a könyveket az adatbázisába!");
+
+                }
+                
 
             }
             catch (System.IO.FileNotFoundException)
@@ -67,7 +74,7 @@ namespace Nagybeadando
 
         }
 
-        private void BetoltTagok()
+        private void BetoltTagok(bool flag)
         {
             try
             {
@@ -83,7 +90,11 @@ namespace Nagybeadando
                     this.tagok.Add(sz);
                 }
                 reader.CloseReader();
-                Console.WriteLine($"A könyvtár betöltötte a tagokat az adatbázisába!");
+                if (flag)
+                {
+                    Console.WriteLine($"A könyvtár betöltötte a tagokat az adatbázisába!");
+                }
+                
 
             }
             catch (System.IO.FileNotFoundException)
@@ -96,7 +107,7 @@ namespace Nagybeadando
 
         }
 
-        private void BetoltKolcsonzesek()
+        private void BetoltKolcsonzesek(bool flag)
         {
 
             try
@@ -112,14 +123,9 @@ namespace Nagybeadando
                     kolcsonzesek.Add(new Kolcsonzes
                     (
                         DateTime.Parse(tokens1[0]),
-                        new Szemely(int.Parse(tokens1[1]), tokens1[2]),
-                        new Konyv(tokens1[3],
-                                tokens1[4],
-                                tokens1[5],
-                                tokens1[6],
-                                int.Parse(tokens1[7]),
-                                bool.Parse(tokens1[8]),
-                                tokens1[9])
+                        int.Parse(tokens1[1]),
+                        tokens1[2]
+                        
                     ));
                     
                 }
@@ -152,6 +158,7 @@ namespace Nagybeadando
 
             tagok.Add(sz);
             Console.WriteLine($"{sz.nev} könytári tag lett!");
+            BetoltTagok(false);
 
         }
 
@@ -163,8 +170,9 @@ namespace Nagybeadando
 
             string path = "konyvek.txt";
             StreamWriter writer = new StreamWriter(path, true);
-            writer.WriteLine($"{k.cim},{k.szerzo},{k.azonosito},{k.ISBN},{k.oldal.ToString()},{k.ritkasage.ToString()},{k.mufaj}");
+            writer.WriteLine($"{k.cim},{k.szerzo},{k.azonosito},{k.ISBN},{k.oldal.ToString()},{k.ritkasage.ToString()},{k.mufaj},{k.kolcsonk.ToString()}");
             writer.Close();
+            BetoltKonyvek(false);
             
         }
 
@@ -175,7 +183,7 @@ namespace Nagybeadando
         }
  
         //A tagok listajaban megkeressuk a szemelyt
-        private Szemely TKereses(int id)
+        public Szemely TKereses(int id)
         {
             Szemely szemely = null;
             foreach (Szemely sz in tagok)
@@ -192,6 +200,19 @@ namespace Nagybeadando
 
         }
 
+        public Konyv KKeres(string azon)
+        {
+            Konyv konyv = null;
+            foreach(Konyv k in konyvek)
+            {
+                if (k.azonosito == azon)
+                {
+                    konyv = k;
+                }
+            }
+            return konyv;
+        }
+
 
 
         public void Kolcsonoz(int id, string[] azon)
@@ -203,7 +224,7 @@ namespace Nagybeadando
             int count = 0;
             for (int s = 0; s < this.kolcsonzesek.Count; s++)
             {
-                if (this.kolcsonzesek[s].szemely.nev == tag.nev)
+                if (this.kolcsonzesek[s].id == tag.id)
                 {
                     count += 1;
                 }
@@ -215,28 +236,32 @@ namespace Nagybeadando
             {
                 for (int j = 0; j < azon.Length; j++)
                 {
-                    if (this.konyvek[i].azonosito == azon[j])
+                    if (this.konyvek[i].azonosito.Equals(azon[j]))
                     {
                         Console.WriteLine("---------");
                         Console.WriteLine($"A {this.konyvek[i].cim} ki lett kölcsönözve a könyvtárból {tag.nev} által! ");
-                        this.kolcsonzesek.Add(new Kolcsonzes(tag, this.konyvek[i]));
+                        Kolcsonzes ujKolcsonzes = new Kolcsonzes(tag.id, this.konyvek[i].azonosito);
+                        this.kolcsonzesek.Add(ujKolcsonzes);
 
                         string path2 = "kolcsonzesek.txt";
                         StreamWriter writer2 = new StreamWriter(path2, true);
-                        writer2.WriteLine($"{tag.nev},{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}");
+                        writer2.WriteLine($"{ujKolcsonzes.datum.ToString("yyyy.MM.dd hh:mm:ss")},{tag.id},{konyvek[i].azonosito}");
                         writer2.Close();
                         
                         
-                        this.konyvek.Remove(this.konyvek[i]);
+                        this.konyvek[i].kolcsonk=true;
 
                         string path = "konyvek.txt";
                         StreamWriter writer = new StreamWriter(path);
                         for (int s = 0; s < konyvek.Count; s++)
                         {
-                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}");
+                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}, {konyvek[i].kolcsonk}");
 
                         }
                         writer.Close();
+
+                        this.BetoltKolcsonzesek(false);
+                        this.BetoltKonyvek(false);
 
                     }
                     else throw new NincsilyenKonyv();
@@ -256,18 +281,32 @@ namespace Nagybeadando
             {
                 for (int j = 0; j < azon.Length; j++)
                 {
-                    if (this.kolcsonzesek[i].konyv.azonosito == azon[j])
+                    if (this.kolcsonzesek[i].azon.Equals(azon[j]))
                     {
+                        Szemely sz = this.TKereses(kolcsonzesek[i].id);
+                        Konyv k = this.KKeres(kolcsonzesek[i].azon);
+
                         Console.WriteLine("---------");
-                        Console.WriteLine($"A kikölcsönzött könyv: {this.kolcsonzesek[i].konyv.cim} vissza lett hozva");
-                        this.kolcsonzesek[i].Potdijfizet();
-                        this.konyvek.Add(kolcsonzesek[i].konyv);
+                        Console.WriteLine($"A kikölcsönzött könyv: {k.cim} vissza lett hozva");
+                        int potdij = PotdijSzamol(kolcsonzesek[i]);
+                        Console.WriteLine($"Személy: {sz.nev}\tKönyv: {k.cim}\tFizetendő pótdíj: {potdij.ToString()}");
+
+                        //azon alapján megkeresem a kikölcsönzött könyvet és a kolcsonk-t visszaállítom false-ra
+                        int m = 0;
+                        while (m < this.konyvek.Count)
+                        {
+                            if (konyvek[m].azonosito.Equals(k.azonosito))
+                            {
+                                this.konyvek[m].kolcsonk = false;
+                            }
+                            m++;
+                        }
 
                         string path = "konyvek.txt";
                         StreamWriter writer = new StreamWriter(path);
                         for (int s = 0; s < konyvek.Count; s++)
                         {
-                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}");
+                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}, {konyvek[i].kolcsonk.ToString()}");
 
                         }
                         writer.Close();
@@ -278,20 +317,61 @@ namespace Nagybeadando
                         StreamWriter writer2 = new StreamWriter(path2);
                         for (int s = 0; s < kolcsonzesek.Count; s++)
                         {
-                            writer2.WriteLine($"{kolcsonzesek[i].datum},{kolcsonzesek[i].szemely.nev},{kolcsonzesek[i].konyv.cim},{kolcsonzesek[i].konyv.szerzo},{kolcsonzesek[i].konyv.azonosito},{kolcsonzesek[i].konyv.ISBN},{kolcsonzesek[i].konyv.oldal.ToString()},{kolcsonzesek[i].konyv.ritkasage.ToString()},{kolcsonzesek[i].konyv.mufaj}");
+                            writer2.WriteLine($"{kolcsonzesek[i].datum},{kolcsonzesek[i].id},{kolcsonzesek[i].azon}");
 
                         }
                         writer2.Close();
 
+                        this.BetoltKolcsonzesek(false);
+                        this.BetoltKonyvek(false);
                     }
-                    else throw new NincsilyenKonyvKikolcsonozve();
+                    
 
                 }
             }
 
         }
 
-        
+        private int PotdijSzamol(Kolcsonzes kolcs)
+        {
+            int elteltido=0;
+            if (DateTime.Now > kolcs.datum.AddDays(14))
+            {
+                elteltido = (DateTime.Now - kolcs.datum).Days;
+                
+            }
+            Konyv k = KKeres(kolcs.azon);
+            int osszeg = 0;
+            if (k.mufaj.Equals("természettudományi") && k.ritkasage)
+            {
+                osszeg = 100 * elteltido;
+            }
+            else if (k.mufaj.Equals("természettudományi") && !k.ritkasage)
+            {
+                osszeg = 20 * elteltido;
+            }
+            else if (k.mufaj.Equals("szépirodalmi") && k.ritkasage)
+            {
+                osszeg = 50 * elteltido;
+            }
+            else if (k.mufaj.Equals("szépirodalmi") && !k.ritkasage)
+            {
+                osszeg = 10 * elteltido;
+            }
+            else if (k.mufaj.Equals("ifjúsági") && k.ritkasage)
+            {
+                osszeg = 30 * elteltido;
+            }
+            else if (k.mufaj.Equals("ifjúsági") && !k.ritkasage)
+            {
+                osszeg = 10 * elteltido;
+            }
+
+            return osszeg;
+
+        }
+
+
 
 
     }

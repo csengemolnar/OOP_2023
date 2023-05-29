@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using TextFile;
 
-namespace Nagybeadando
+namespace KonyvtarBead
 {
-     class Szemely
+     public class Szemely
     {
-        public int id { get; private set; }
+        public int id;
         public string nev { get; private set; }
 
         public Szemely(int id, string n)
