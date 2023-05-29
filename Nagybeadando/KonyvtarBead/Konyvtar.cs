@@ -130,7 +130,11 @@ namespace KonyvtarBead
                     
                 }
                 reader3.CloseReader();
-                Console.WriteLine($"A könyvtár betöltötte a kölcsönzéseket az adatbázisába!");
+                if (flag)
+                {
+                    Console.WriteLine($"A könyvtár betöltötte a kölcsönzéseket az adatbázisába!");
+                }
+                
 
             }
             catch (System.IO.FileNotFoundException)
@@ -255,7 +259,7 @@ namespace KonyvtarBead
                         StreamWriter writer = new StreamWriter(path);
                         for (int s = 0; s < konyvek.Count; s++)
                         {
-                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}, {konyvek[i].kolcsonk}");
+                            writer.WriteLine($"{konyvek[s].cim},{konyvek[s].szerzo},{konyvek[s].azonosito},{konyvek[s].ISBN},{konyvek[s].oldal.ToString()},{konyvek[s].ritkasage.ToString()},{konyvek[s].mufaj}, {konyvek[s].kolcsonk}");
 
                         }
                         writer.Close();
@@ -306,7 +310,7 @@ namespace KonyvtarBead
                         StreamWriter writer = new StreamWriter(path);
                         for (int s = 0; s < konyvek.Count; s++)
                         {
-                            writer.WriteLine($"{konyvek[i].cim},{konyvek[i].szerzo},{konyvek[i].azonosito},{konyvek[i].ISBN},{konyvek[i].oldal.ToString()},{konyvek[i].ritkasage.ToString()},{konyvek[i].mufaj}, {konyvek[i].kolcsonk.ToString()}");
+                            writer.WriteLine($"{konyvek[s].cim},{konyvek[s].szerzo},{konyvek[s].azonosito},{konyvek[s].ISBN},{konyvek[s].oldal.ToString()},{konyvek[s].ritkasage.ToString()},{konyvek[s].mufaj}, {konyvek[s].kolcsonk.ToString()}");
 
                         }
                         writer.Close();
@@ -317,7 +321,7 @@ namespace KonyvtarBead
                         StreamWriter writer2 = new StreamWriter(path2);
                         for (int s = 0; s < kolcsonzesek.Count; s++)
                         {
-                            writer2.WriteLine($"{kolcsonzesek[i].datum},{kolcsonzesek[i].id},{kolcsonzesek[i].azon}");
+                            writer2.WriteLine($"{kolcsonzesek[s].datum},{kolcsonzesek[s].id},{kolcsonzesek[s].azon}");
 
                         }
                         writer2.Close();
