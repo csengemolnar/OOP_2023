@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using TextFile;
@@ -14,9 +15,7 @@ namespace KonyvtarBead
         public class NincsilyenTag : Exception { }
         public class NincsilyenKonyv : Exception { }
         public class Kolcsonzesilimit : Exception { }
-        public class VanIlyenTag : Exception { }
         public class Nincsmegadva : Exception { }
-        public class NincsilyenKonyvKikolcsonozve: Exception { }
         public List<Konyv> konyvek { get;  private set; }
         public List<Szemely> tagok { get; private set; }
         public List<Kolcsonzes> kolcsonzesek { get; private set; }
@@ -203,7 +202,7 @@ namespace KonyvtarBead
             return szemely;
 
         }
-
+        //a könyvek listájában megkeressük a könyvet
         public Konyv KKeres(string azon)
         {
             Konyv konyv = null;
@@ -219,10 +218,12 @@ namespace KonyvtarBead
 
 
 
+
+
         public void Kolcsonoz(int id, string[] azon)
         {
-            Szemely tag =TKereses(id);
-            
+            Szemely tag = TKereses(id);
+
             if (tag == null) throw new NincsilyenTag();
 
             int count = 0;
@@ -234,61 +235,68 @@ namespace KonyvtarBead
                 }
 
             }
-            if(count>5) throw new Kolcsonzesilimit();
+            if (count > 5) throw new Kolcsonzesilimit();
             if (azon == null) throw new Nincsmegadva();
-            for (int i = 0; i < this.konyvek.Count; i++)
+            for (int j = 0; j < azon.Length; j++)
             {
-                for (int j = 0; j < azon.Length; j++)
+                Konyv k = KKeres(azon[j]);
+                if (k == null)
                 {
-                    if (this.konyvek[i].azonosito.Equals(azon[j]))
+                    throw new NincsilyenKonyv();
+                }
+                else
+                {
+                    Console.WriteLine("---------");
+                    Console.WriteLine($"A(z) {k.cim} ki lett kölcsönözve a könyvtárból {tag.nev} által! ");
+                    Kolcsonzes ujKolcsonzes = new Kolcsonzes(tag.id, k.azonosito);
+                    this.kolcsonzesek.Add(ujKolcsonzes);
+
+                    string path2 = "kolcsonzesek.txt";
+                    StreamWriter writer2 = new StreamWriter(path2, true);
+                    writer2.WriteLine($"{ujKolcsonzes.datum.ToString("yyyy.MM.dd hh:mm:ss")},{tag.id},{k.azonosito}");
+                    writer2.Close();
+
+
+                    k.kolcsonk = true;
+
+                    string path = "konyvek.txt";
+                    StreamWriter writer = new StreamWriter(path);
+                    for (int s = 0; s < konyvek.Count; s++)
                     {
-                        Console.WriteLine("---------");
-                        Console.WriteLine($"A {this.konyvek[i].cim} ki lett kölcsönözve a könyvtárból {tag.nev} által! ");
-                        Kolcsonzes ujKolcsonzes = new Kolcsonzes(tag.id, this.konyvek[i].azonosito);
-                        this.kolcsonzesek.Add(ujKolcsonzes);
-
-                        string path2 = "kolcsonzesek.txt";
-                        StreamWriter writer2 = new StreamWriter(path2, true);
-                        writer2.WriteLine($"{ujKolcsonzes.datum.ToString("yyyy.MM.dd hh:mm:ss")},{tag.id},{konyvek[i].azonosito}");
-                        writer2.Close();
-                        
-                        
-                        this.konyvek[i].kolcsonk=true;
-
-                        string path = "konyvek.txt";
-                        StreamWriter writer = new StreamWriter(path);
-                        for (int s = 0; s < konyvek.Count; s++)
-                        {
-                            writer.WriteLine($"{konyvek[s].cim},{konyvek[s].szerzo},{konyvek[s].azonosito},{konyvek[s].ISBN},{konyvek[s].oldal.ToString()},{konyvek[s].ritkasage.ToString()},{konyvek[s].mufaj}, {konyvek[s].kolcsonk}");
-
-                        }
-                        writer.Close();
-
-                        this.BetoltKolcsonzesek(false);
-                        this.BetoltKonyvek(false);
+                        writer.WriteLine($"{konyvek[s].cim},{konyvek[s].szerzo},{konyvek[s].azonosito},{konyvek[s].ISBN},{konyvek[s].oldal.ToString()},{konyvek[s].ritkasage.ToString()},{konyvek[s].mufaj}, {konyvek[s].kolcsonk}");
 
                     }
-                    else throw new NincsilyenKonyv();
+                    writer.Close();
+
+                    this.BetoltKolcsonzesek(false);
+                    this.BetoltKonyvek(false);
 
                 }
+              
+
+
             }
-            
-            
-            
-            
+
+
+
+
 
         }
 
         public void Visszahoz(string[] azon)
         {
+            if (azon == null) throw new Nincsmegadva();
             for (int i = 0; i < this.kolcsonzesek.Count; i++)
             {
                 for (int j = 0; j < azon.Length; j++)
                 {
+
                     if (this.kolcsonzesek[i].azon.Equals(azon[j]))
                     {
+
                         Szemely sz = this.TKereses(kolcsonzesek[i].id);
                         Konyv k = this.KKeres(kolcsonzesek[i].azon);
+
 
                         Console.WriteLine("---------");
                         Console.WriteLine($"A kikölcsönzött könyv: {k.cim} vissza lett hozva");
@@ -329,7 +337,8 @@ namespace KonyvtarBead
                         this.BetoltKolcsonzesek(false);
                         this.BetoltKonyvek(false);
                     }
-                    
+
+
 
                 }
             }

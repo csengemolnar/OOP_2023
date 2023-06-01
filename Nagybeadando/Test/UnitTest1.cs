@@ -47,7 +47,7 @@ namespace Test
             Konyvtar k = new Konyvtar();
             int khossz = k.kolcsonzesek.Count+1;
             
-            k.Kolcsonoz(3, new string[] { "3f21acf7-0cf9-424e-949f-f23d4f33dfc3" });
+            k.Kolcsonoz(5, new string[] { "f5b713ef-7ed6-41c1-93c6-e13940134f0c" });
             int khossz2 = k.kolcsonzesek.Count;
 
             Assert.AreEqual(khossz, khossz2);
@@ -61,7 +61,7 @@ namespace Test
             Konyvtar k = new Konyvtar();
 
             int hossz = k.kolcsonzesek.Count-1;
-            k.Visszahoz(new string[] { "f5b713ef-7ed6-41c1-93c6-e13940134f0c"});
+            k.Visszahoz(new string[] { "f5b713ef-7ed6-41c1-93c6-e13940134f0c" });
             int hossz2 = k.kolcsonzesek.Count;
             Assert.AreEqual (hossz, hossz2);
             
